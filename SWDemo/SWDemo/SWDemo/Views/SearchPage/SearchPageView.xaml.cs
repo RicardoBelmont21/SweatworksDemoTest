@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace SWDemo.Views.SearchPage
@@ -15,9 +17,10 @@ namespace SWDemo.Views.SearchPage
     {
         public SearchPageView()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+            Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             BindingContext = new SearchPageViewModel(this);
+            On<iOS>().SetUseSafeArea(true);
         }
     }
 }

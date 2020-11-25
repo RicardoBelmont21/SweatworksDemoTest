@@ -1,5 +1,7 @@
 ﻿using SWDemo.ViewModels.WebPage;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace SWDemo.Views.WebRenderer
@@ -9,9 +11,10 @@ namespace SWDemo.Views.WebRenderer
     {
         public WebPageView(string Url)
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+            Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            BindingContext = new WebPageViewModel(Url, this);
+            BindingContext = new WebPageViewModel(Url, this); 
+            On<iOS>().SetUseSafeArea(true);
         }
     }
 }
