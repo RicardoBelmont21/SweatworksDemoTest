@@ -1,0 +1,26 @@
+﻿<ResourceDictionary  xmlns="http://xamarin.com/schemas/2014/forms" 
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     mc:Ignorable="d"
+                     x:Class="SWDemo.Styles.ThemesDefinitions.LightThemeDefinition">
+    
+    <!--Text colors-->
+    <Color x:Key="TextPrimary">#37474f</Color>
+    <Color x:Key="TextGreen">#cf3</Color>
+    <Color x:Key="TextHint">#A8A8A8</Color>
+    
+    <!--Common-->
+    <Color x:Key="EntryBorderColor">#F2F2F2</Color>
+    <Color x:Key="EntryBackgroundColor">#FFFFFF</Color>
+    <Color x:Key="Danger">#DB5D5C</Color>
+
+    <!--Layouts-->
+    <Color x:Key="Primary">#292929</Color>
+
+    <!--Icons-->
+    <x:String x:Key="Book">book.png</x:String>
+    <x:String x:Key="BookcardBG">bookbg.png</x:String>
+    
+
+</ResourceDictionary>

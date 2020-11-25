@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:SWDemo.Controls" 
+             xmlns:keys="clr-namespace:SWDemo.Styles.Keys" 
+             xmlns:styles="clr-namespace:SWDemo.Styles" 
+             xmlns:extensions="clr-namespace:SWDemo.Extensions" xmlns:labels="clr-namespace:SWDemo.Labels" xmlns:cell="clr-namespace:SWDemo.Views.SearchPage.Cell"
+             x:Class="SWDemo.Views.SearchPage.SearchPageView">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              Margin="0"
+              Padding="0">
+            <StackLayout HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand">
+                <Grid HorizontalOptions="FillAndExpand"
+                      VerticalOptions="Start"
+                      Margin="0"
+                      Padding="{extensions:ScreenMarckup FullValue={x:Static styles:Layouts.Margin}, RequiredPercentage=100}">
+                    <controls:CustomEntry HorizontalOptions="Fill"
+                                          VerticalOptions="Start"
+                                          BackgroundColor="{x:DynamicResource Key={x:Static keys:ColorKeys.EntryBackgroundColor}}"
+                                          Placeholder="{x:Static labels:Labels.SearchPlaceholder}"
+                                          Text="{Binding Keyword}"/>
+                    <Label Text="{x:Static labels:Labels.Go}"
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           BackgroundColor="{x:DynamicResource Key={x:Static keys:ColorKeys.EntryBackgroundColor}}"
+                           TextColor="{x:DynamicResource Key={x:Static keys:ColorKeys.TextGreen}}"
+                           Margin="{extensions:ScreenMarckup FullValue={x:Static styles:Layouts.Margin}, RequiredPercentage=50}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SearchCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+                <controls:LazyListView HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="FillAndExpand"
+                                       Margin="0"                                       
+                                       HasUnevenRows="True"
+                                       SelectionMode="None"
+                                       SeparatorVisibility="None"
+                                       LoadMoreCommand="{Binding LoadMoreCommand}"
+                                       ItemsSource="{Binding Books}">
+                    <controls:LazyListView.ItemTemplate>
+                        <DataTemplate>
+                            <cell:BookListCell/>
+                        </DataTemplate>
+                    </controls:LazyListView.ItemTemplate>
+                </controls:LazyListView>
+            </StackLayout>
+            <controls:LoadingView IsRunning="{Binding IsBusy}"/>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
