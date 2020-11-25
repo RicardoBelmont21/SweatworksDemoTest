@@ -117,11 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="App" xml:space="preserve">
+    <value>App</value>
+  </data>
   <data name="Authors" xml:space="preserve">
     <value>Authors</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>CLOSE</value>
+  </data>
   <data name="Go" xml:space="preserve">
     <value>GO</value>
+  </data>
+  <data name="HowOpen" xml:space="preserve">
+    <value>OpenWith</value>
+  </data>
+  <data name="LinkNotAvailable" xml:space="preserve">
+    <value>Not Available</value>
   </data>
   <data name="NoMoreResults" xml:space="preserve">
     <value>No more items</value>
@@ -132,8 +144,14 @@
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="PhoneBrowser" xml:space="preserve">
+    <value>Browser</value>
+  </data>
   <data name="PublishDate" xml:space="preserve">
     <value>Publish Date</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Read:</value>
   </data>
   <data name="SearchPlaceholder" xml:space="preserve">
     <value>Search</value>

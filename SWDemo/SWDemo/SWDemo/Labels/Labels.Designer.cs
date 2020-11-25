@@ -61,6 +61,15 @@ namespace SWDemo.Labels {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to App.
+        /// </summary>
+        public static string App {
+            get {
+                return ResourceManager.GetString("App", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Authors.
         /// </summary>
         public static string Authors {
@@ -70,11 +79,38 @@ namespace SWDemo.Labels {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CLOSE.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GO.
         /// </summary>
         public static string Go {
             get {
                 return ResourceManager.GetString("Go", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OpenWith.
+        /// </summary>
+        public static string HowOpen {
+            get {
+                return ResourceManager.GetString("HowOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Available.
+        /// </summary>
+        public static string LinkNotAvailable {
+            get {
+                return ResourceManager.GetString("LinkNotAvailable", resourceCulture);
             }
         }
         
@@ -106,11 +142,29 @@ namespace SWDemo.Labels {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Browser.
+        /// </summary>
+        public static string PhoneBrowser {
+            get {
+                return ResourceManager.GetString("PhoneBrowser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Publish Date.
         /// </summary>
         public static string PublishDate {
             get {
                 return ResourceManager.GetString("PublishDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read:.
+        /// </summary>
+        public static string Read {
+            get {
+                return ResourceManager.GetString("Read", resourceCulture);
             }
         }
         

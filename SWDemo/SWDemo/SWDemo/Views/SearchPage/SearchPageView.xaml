@@ -4,7 +4,7 @@
              xmlns:controls="clr-namespace:SWDemo.Controls" 
              xmlns:keys="clr-namespace:SWDemo.Styles.Keys" 
              xmlns:styles="clr-namespace:SWDemo.Styles" 
-             xmlns:extensions="clr-namespace:SWDemo.Extensions" xmlns:labels="clr-namespace:SWDemo.Labels" xmlns:cell="clr-namespace:SWDemo.Views.SearchPage.Cell"
+             xmlns:extensions="clr-namespace:SWDemo.Extensions" xmlns:labels="clr-namespace:SWDemo.Labels" xmlns:cell="clr-namespace:SWDemo.Views.SearchPage.Cell" xmlns:behaviorspack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
              x:Class="SWDemo.Views.SearchPage.SearchPageView">
     <ContentPage.Content>
         <Grid HorizontalOptions="FillAndExpand"
@@ -46,6 +46,11 @@
                             <cell:BookListCell/>
                         </DataTemplate>
                     </controls:LazyListView.ItemTemplate>
+                    <controls:LazyListView.Behaviors>
+                        <behaviorspack:EventToCommandBehavior EventName="ItemTapped"
+                                                              EventArgsPropertyPath="Item"
+                                                              Command="{Binding ItemSelectedCommand}"/>
+                    </controls:LazyListView.Behaviors>
                 </controls:LazyListView>
             </StackLayout>
             <controls:LoadingView IsRunning="{Binding IsBusy}"/>

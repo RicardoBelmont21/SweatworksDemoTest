@@ -5,6 +5,7 @@
                      mc:Ignorable="d"
                      x:Class="SWDemo.Styles.ThemesDefinitions.LightThemeDefinition">
     
+    <!--Light theme (Dark Actually xd)-->
     <!--Text colors-->
     <Color x:Key="TextPrimary">#37474f</Color>
     <Color x:Key="TextGreen">#cf3</Color>
@@ -14,6 +15,7 @@
     <Color x:Key="EntryBorderColor">#F2F2F2</Color>
     <Color x:Key="EntryBackgroundColor">#FFFFFF</Color>
     <Color x:Key="Danger">#DB5D5C</Color>
+    <Color x:Key="Divider">#A1A1A1</Color>
 
     <!--Layouts-->
     <Color x:Key="Primary">#292929</Color>

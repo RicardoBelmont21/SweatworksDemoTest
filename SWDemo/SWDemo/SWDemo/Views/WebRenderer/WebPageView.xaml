@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:styles="clr-namespace:SWDemo.Styles" 
+             xmlns:extensions="clr-namespace:SWDemo.Extensions" 
+             xmlns:keys="clr-namespace:SWDemo.Styles.Keys" 
+             xmlns:labels="clr-namespace:SWDemo.Labels" xmlns:controls="clr-namespace:SWDemo.Controls"
+             x:Class="SWDemo.Views.WebRenderer.WebPageView">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Margin="0"
+                     Spacing="0"
+                     Padding="0">
+            <Label Text="{x:Static labels:Labels.Close}"
+                   TextColor="{x:DynamicResource Key={x:Static keys:ColorKeys.TextHint}}"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"
+                   Margin="{extensions:Thickness Up={extensions:ScreenMarckup FullValue={x:Static styles:Layouts.Margin}, RequiredPercentage=50}, 
+                                                 Bottom={extensions:ScreenMarckup FullValue={x:Static styles:Layouts.Margin}, RequiredPercentage=50}}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ClosePageCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <controls:Divider HorizontalOptions="FillAndExpand"
+                              Margin="0"
+                              VerticalOptions="Start"/>
+            <WebView Source="{Binding Url}"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Margin="0"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -5,6 +5,8 @@ using Xamarin.Forms;
 using System.Linq;
 using SWDemo.Styles.Keys;
 using SWDemo.Controls;
+using SWDemo.Views.DetailPage;
+using Rg.Plugins.Popup.Extensions;
 
 namespace SWDemo.ViewModels.SearchPage
 {
@@ -31,17 +33,19 @@ namespace SWDemo.ViewModels.SearchPage
             }
         }
 
-
         public Command SearchCommand { get; set; }
         public Command LoadMoreCommand { get; set; }
+        public Command ItemSelectedCommand { get; set; }
 
         public SearchPageViewModel(Page context):base(context)
         {
             SearchCommand = new Command(async () => await GetBooks(this.Keyword, 0));
             LoadMoreCommand = new Command(async () => await GetBooks(_keywordBackup, page));
+            ItemSelectedCommand = new Command(async (param) => await OnItemSelected(param as Models.Response.Books.Item));
             Books = new ObservableCollection<Models.Response.Books.Item>();
         }
 
+        //Call API Repository to get all books or the next page
         private async Task GetBooks(string keyword, int currentPage)
         {
             if (string.IsNullOrEmpty(keyword))
@@ -81,7 +85,6 @@ namespace SWDemo.ViewModels.SearchPage
                 return;
             }
 
-
             books.Items.ToList().ForEach(b =>
             {
                 if (string.IsNullOrWhiteSpace(b.VolumeInfo.ImageLinks?.SmallThumbnail) || string.IsNullOrWhiteSpace(b.VolumeInfo.ImageLinks?.Thumbnail))
@@ -96,6 +99,12 @@ namespace SWDemo.ViewModels.SearchPage
             });
             IsBusy = false;
             page++;
+        }
+    
+        private async Task OnItemSelected(Models.Response.Books.Item book)
+        {
+            var page = new DetailPageView(book);
+            await Navigation.PushPopupAsync(page);
         }
     }
 }

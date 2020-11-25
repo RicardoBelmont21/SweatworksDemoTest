@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                  xmlns:styles="clr-namespace:SWDemo.Styles" 
+                  xmlns:extensions="clr-namespace:SWDemo.Extensions" 
+                  xmlns:keys="clr-namespace:SWDemo.Styles.Keys" 
+                  xmlns:labels="clr-namespace:SWDemo.Labels" 
+                  xmlns:controls="clr-namespace:SWDemo.Controls" 
+                  xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+                  xmlns:converters="clr-namespace:SWDemo.Converters"
+                  x:Class="SWDemo.Views.DetailPage.DetailPageView">
+    <pages:PopupPage.Resources>
+        <converters:ArrayToStringConverter x:Key="arrayToStringConverter"/>
+    </pages:PopupPage.Resources>
+    <pages:PopupPage.Content>
+        <Frame HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"
+               Margin="{x:Static styles:Layouts.Margin}"
+               Padding="0"
+               IsClippedToBounds="True"
+               CornerRadius="{x:Static styles:Layouts.FrameCornerRadius}"
+               BorderColor="{x:DynamicResource Key={x:Static keys:ColorKeys.TextGreen}}">
+            <StackLayout HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         Margin="0"
+                         Spacing="0"
+                         Padding="0">
+                <Label Text="{x:Static labels:Labels.Close}"
+                       TextColor="{x:DynamicResource Key={x:Static keys:ColorKeys.TextHint}}"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"
+                       Margin="{extensions:Thickness Up={extensions:ScreenMarckup FullValue={x:Static styles:Layouts.Margin}, RequiredPercentage=50}, 
+                                                     Bottom={extensions:ScreenMarckup FullValue={x:Static styles:Layouts.Margin}, RequiredPercentage=50}}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ClosePageCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <controls:Divider HorizontalOptions="FillAndExpand"
+                                  Margin="0"
+                                  VerticalOptions="Start"/>
+                <forms:CachedImage HorizontalOptions="Fill"
+                                   VerticalOptions="Start"
+                                   BackgroundColor="{x:DynamicResource Key={x:Static keys:ColorKeys.Primary}}"
+                                   HeightRequest="{extensions:ScreenMarckup FullValue={x:Static styles:Layouts.DisplayYSizePX}, RequiredPercentage=30}"
+                                   MinimumHeightRequest="{extensions:ScreenMarckup FullValue={x:Static styles:Layouts.DisplayYSizePX}, RequiredPercentage=30}"
+                                   Source="{Binding Book.VolumeInfo.ImageLinks.Thumbnail}"/>
+                <ScrollView HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            VerticalScrollBarVisibility="Never">
+                    <StackLayout HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 Margin="0"
+                                 Padding="{x:Static styles:Layouts.Margin}">
+                        <controls:TitleSubtitleItem TitleText="{x:Static labels:Labels.Title}"
+                                                    SubtitleText="{Binding Book.VolumeInfo.Title}"
+                                                    Margin="{extensions:Thickness Bottom={extensions:ScreenMarckup FullValue={x:Static styles:Layouts.Margin}, RequiredPercentage=80}}"/>
+                        <controls:TitleSubtitleItem TitleText="{x:Static labels:Labels.PublishDate}"
+                                                    SubtitleText="{Binding Book.VolumeInfo.PublishedDate}"
+                                                    Margin="{extensions:Thickness Bottom={extensions:ScreenMarckup FullValue={x:Static styles:Layouts.Margin}, RequiredPercentage=80}}"/>
+                        <controls:TitleSubtitleItem TitleText="{x:Static labels:Labels.Authors}"
+                                                    SubtitleText="{Binding Book.VolumeInfo.Authors, Converter={StaticResource arrayToStringConverter}}"
+                                                    Margin="{extensions:Thickness Bottom={extensions:ScreenMarckup FullValue={x:Static styles:Layouts.Margin}, RequiredPercentage=80}}"/>
+                        <controls:TitleSubtitleItem TitleText="{x:Static labels:Labels.Read}"
+                                                    SubtitleText="{Binding Book.VolumeInfo.PreviewLink}"
+                                                    Margin="{extensions:Thickness Bottom={extensions:ScreenMarckup FullValue={x:Static styles:Layouts.Margin}, RequiredPercentage=80}}">
+                            <controls:TitleSubtitleItem.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenLinkCommand}"/>
+                            </controls:TitleSubtitleItem.GestureRecognizers>
+                        </controls:TitleSubtitleItem>
+
+                    </StackLayout>
+                </ScrollView>
+
+            </StackLayout>
+        </Frame>
+
+    </pages:PopupPage.Content>
+</pages:PopupPage>

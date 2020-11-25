@@ -99,5 +99,10 @@ namespace SWDemo.Controls
         {
             await Navigation.PopPopupAsync();
         }
+
+        public async Task PopAllPopupAsync()
+        {
+            await Navigation.PopAllPopupAsync();
+        }
     }
 }

@@ -14,6 +14,7 @@
         public static string EntryBorderColor => "EntryBorderColor";
         public static string EntryBackgroundColor => "EntryBackgroundColor";
         public static string Danger => "Danger";
+        public static string Divider => "Divider";
 
         //Icons
         public static string NavIconsColor => "NavIconsColor";
