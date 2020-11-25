@@ -10,6 +10,7 @@ using Xamarin.Forms;
 
 namespace SWDemo.Views.SearchPage.Cell
 {
+    //Card Cell
     public class BookListCell:ViewCell
     {
         public BookListCell()

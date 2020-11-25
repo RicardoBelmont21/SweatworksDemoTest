@@ -76,7 +76,7 @@ namespace SWDemo.iOS.CustomRenders
                 context.DrawPath(CGPathDrawingMode.FillStroke);
             }
         }
-
+        //Styles selector 
         void DrawLine(CustomEntry entry)
         {
             // Remove native borders
@@ -84,9 +84,6 @@ namespace SWDemo.iOS.CustomRenders
 
             // Hide bottom line 
             //Control.Layer.Sublayers[2].Hidden = true;
-
-            // QUITA EL ESPACIO EXTRA DE ERROR
-            //Control.UnderlineErrorSpaceEnabled = false;
 
             // Creates normal layer
             var normalLayer = new CANormalLayer();
@@ -100,21 +97,21 @@ namespace SWDemo.iOS.CustomRenders
             focusLayer.Frame = rect;
             focusLayer.BackgroundColor = entry.FocusedBorderColor.ToCGColor();
 
-            // REMPLAZA LA ANTERIOR CAPA NORMAL SI EXISTE
+            // Replace layer (if exist)
             if (NativeView.Layer.Sublayers[0] is CANormalLayer)
                 NativeView.Layer.ReplaceSublayer(NativeView.Layer.Sublayers[0], normalLayer);
-            // AGREGA LA CAPA NORMAL
+            // just add the layer if it does not exist before
             else
                 NativeView.Layer.InsertSublayer(normalLayer, 0);
 
-            // REMPLAZA EL ANTERIOR GRADIENTE SI EXISTE
+            // replace gradient (if exist)
             if (NativeView.Layer.Sublayers[1] is CAFocusLayer)
                 NativeView.Layer.ReplaceSublayer(NativeView.Layer.Sublayers[1], focusLayer);
-            // AGREGA LA CAPA DEL GRADIENTE
+            // add gradient layer 
             else
                 NativeView.Layer.InsertSublayer(focusLayer, 1);
 
-            // OCULTA LA CAPA DEL GRADIENTE
+            // hide gradient layer
             NativeView.Layer.Sublayers[1].Hidden = true;
         }
 

@@ -26,9 +26,9 @@ namespace SWDemo
         {
         }
 
-        //TODO: Generic darkmode depending on Sweatworks reqs
+        //Style & fonts setup
         public static void SetTheme()
-        {
+        {   
             App.Current.Resources.MergedDictionaries.Clear();
             App.Current.Resources.MergedDictionaries.Add(new LightThemeDefinition());
             SetFontSizes(1);

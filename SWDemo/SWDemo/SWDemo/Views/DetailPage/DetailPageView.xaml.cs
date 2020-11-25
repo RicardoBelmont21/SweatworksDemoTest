@@ -11,6 +11,8 @@ namespace SWDemo.Views.DetailPage
         {
             InitializeComponent();
             BindingContext = new DetailPageViewModel(selectedBook, this);
+
+            //Popup annimation
             this.Animation = new Rg.Plugins.Popup.Animations.MoveAnimation()
             {
                 PositionIn = Rg.Plugins.Popup.Enums.MoveAnimationOptions.Bottom,
@@ -19,11 +21,6 @@ namespace SWDemo.Views.DetailPage
                 DurationIn = 600,
                 EasingIn = Easing.SpringOut
             };
-        }
-
-        private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
-        {
-
         }
     }
 }
